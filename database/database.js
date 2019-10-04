@@ -18,11 +18,10 @@ const users=db.define('users',{
     },
     password:{
         type:sequelize.STRING,
-        allowNull:false,
     },
     phone:{
         type:sequelize.STRING,
-        allowNull:false,
+        
     },
     googletoken:{
         type:sequelize.STRING,

@@ -15,7 +15,7 @@ app.use(session({
     resave:false,
     saveUninitialized:true,
     cookie:{
-        maxAge:1000*60,
+        maxAge:1000*60*60*60,
     }
 }))
 app.use(passport.initialize())
@@ -69,6 +69,22 @@ app.post('/login',passport.authenticate('local',{failureRedirect:'/login'}),func
     }
 })
 
+//facebook signin
+app.get('/login/fb', passport.authenticate('facebook'))
+app.get('/login/fb/callback', passport.authenticate('facebook', {
+  successRedirect: '/user',
+  failureRedirect: '/login'
+}))
+
+//google signin
+app.get('/login/google', passport.authenticate('google',{ scope:
+    [ 'email', 'profile' ] }
+    ))
+  
+  app.get('/login/google/callback', passport.authenticate('google', {
+    successRedirect: '/user',
+    failureRedirect: '/login'
+  }))
 
 //signup
 app.post('/signup',(req,res)=>{
@@ -77,7 +93,7 @@ app.post('/signup',(req,res)=>{
             username:req.body.username,
             password:req.body.password,
             usertype:req.body.usertype,
-            phone:req.body.phone
+            // phone:req.body.phone
         })
         .then((user)=>{
            // console.log(user)

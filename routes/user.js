@@ -5,7 +5,7 @@ const {passport}=require('./../passportsetup/setupmypassport');
 
 function checkLoggedIn(req, res, next) {
     if (req.user) {
-        if(req.user.usertype=='user')
+        // if(req.user.usertype=='user')
         {
         console.log(req.user);
         console.log("req.user "+req.user.username)
