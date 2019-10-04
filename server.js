@@ -1,22 +1,112 @@
-const express = require('express')
-const app=express()
-const userrouter=require('./routes/user').route
-const vendorrouter=require('./routes/vendor').route
-const adminrouter=require('./routes/admin').route
-const {db,users,products,cart,wishlist,order}=require('./db')
+const express = require('express');
+const app = express();
+const { db, users, products, carts, orders, wishlist } = require('./database/database');
+const session=require('express-session')
 
+const {passport}=require('./passportsetup/setupmypassport');
+const userroute = require('./routes/user');
+const vendorroute=require('./routes/vendor');
+
+app.set('view engine','hbs');
 app.use(express.json())
-app.use(express.urlencoded(({extended:true})))
+app.use(express.urlencoded(({ extended: true })))
+app.use(session({
+    secret:'abcd efgh ijkl',
+    resave:false,
+    saveUninitialized:true,
+    cookie:{
+        maxAge:1000*60,
+    }
+}))
+app.use(passport.initialize())
+app.use(passport.session())
 
-app.set('view engine','hbs')
-
-app.use('/user',userrouter)
-app.use('/vendor',vendorrouter)
-app.use('/admin',adminrouter)
+app.use(express.static('/public'))
+app.use('/',express.static(__dirname+'/public'))
 
 
-db.sync().then(()=>{
-    app.listen(3000,()=>{
-        console.log("Server started at :  http://localhost:3000")
-    })
+app.get('/',function(req,res){
+    res.send('hello');
+})
+
+
+app.use('/user', userroute);
+app.use('/vendor',vendorroute);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//login page
+app.get('/login',(req,res)=>{
+    res.render('login')
+})
+
+
+//authenitcate the person
+app.post('/login',passport.authenticate('local',{failureRedirect:'/login'}),function(req,res){
+    console.log(req.user)
+    if(req.user.usertype=='user')
+    res.redirect('/user');
+    else 
+    {
+        res.redirect('/vendor');
+    }
+})
+
+
+//signup
+app.post('/signup',(req,res)=>{
+    users.create(
+        {
+            username:req.body.username,
+            password:req.body.password,
+            usertype:req.body.usertype,
+            phone:req.body.phone
+        })
+        .then((user)=>{
+           // console.log(user)
+            res.redirect('/login')
+        })
+        .catch((err)=>{
+            console.log(err)
+            res.redirect('/signup')
+        })
+})
+
+
+//signup page
+app.get('/signup',(req,res)=>{
+    res.render('signup')
+})
+
+
+
+
+
+
+app.get('/logout',(req,res)=>{
+    req.logout();
+    res.redirect('/')
+})
+
+
+
+app.listen(4000, () => {
+    console.log("http://localhost:4000");
 })
