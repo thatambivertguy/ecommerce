@@ -55,7 +55,7 @@ passport.use(
         callbackURL: 'http://localhost:4000/login/google/callback',
       },
       (accessToken, refreshToken, profile, done) => {
-        users.findOrCreate({where : {username : profile.id},
+        user.findOrCreate({where : {username : profile.id},
           defaults :
           {
             username : profile.id,

@@ -7,7 +7,7 @@ $(function(){
 
 
   function printingdetails(data){
-    var maindiv=$('#maindiv');  
+    var maindiv=$('#table');  
     for(let i=0;i<data.length;i++)
       {
           var rowdiv=$(`<tr></tr>`)
@@ -27,9 +27,10 @@ $(function(){
             var edited=e.target.parentElement.children[0].innerText;
               $.post('/vendor/delete',{name:edited},(data)=>{
                 //alert('deleted');
-                maindiv.empty();
-                printingdetails(data);
-              })
+               // maindiv.empty();
+              //  printingdetails(data);
+              window.location.reload("http://localhost:4000/vendor/productdetailspage");
+              })  
           })
 
           rowdiv.append(productname,category,subcategory,cost,quantity,del);

@@ -93,7 +93,8 @@ route.post('/addtocart', (req, res) => {
 
 //delete from vendor list
 route.post('/delete', (req, res) => {
-    products.destroy({ where: { name: req.body.name } }).then(products.findAll().then((allproducts) => { res.send(allproducts) }))
+    products.destroy({ where: { name: req.body.name } }).then(products.findAll().then((allproducts) => {// res.send(allproducts) 
+    res.redirect('/vendor/productdetailspage')}))
 })
 
 //decrement the quantity of a product from cart
