@@ -26,7 +26,7 @@ app.use('/',express.static(__dirname+'/public'))
 
 
 app.get('/',function(req,res){
-    res.send('hello');
+    res.render('userhome');
 })
 
 
@@ -118,7 +118,7 @@ app.get('/signup',(req,res)=>{
 
 app.get('/logout',(req,res)=>{
     req.logout();
-    res.redirect('/')
+    res.redirect('/user/')
 })
 
 

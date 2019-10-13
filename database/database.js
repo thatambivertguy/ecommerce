@@ -95,7 +95,10 @@ const carts=db.define('carts',{
     },
     vendor:{
         type:sequelize.STRING,
-    }
+    },
+    image:{
+        type :sequelize.STRING,
+    },
     
 })
 
@@ -157,7 +160,10 @@ const wishlist=db.define('wishlist',{
     },
     vendor:{
         type:sequelize.STRING,
-    }
+    },
+    image:{
+        type:sequelize.STRING,
+    },
 
 })
 
