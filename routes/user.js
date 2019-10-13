@@ -34,6 +34,11 @@ route.get('/getallfromcart', (req, res) => [
 
 //add a product to cart
 route.post('/addtocart', (req, res) => {
+    // carts.findOne({where:{username:req.user.username,productid:req.body.productid}}).then(()=>{
+    //     carts.increment('quantity',{where:{username:req.user.username,productid:req.body.productid}})
+    //     res.send("done") }).catch(()=>{
+    //     console.log("in catch block")
+    // })
     carts.create({
         productname:req.body.productname,
         productid:req.body.productid,
@@ -49,7 +54,8 @@ route.post('/addtocart', (req, res) => {
 
 //delete a product from cart
 route.post('/delete', (req, res) => {
-    carts.destroy({ where: { productname: req.body.productname } }).then(cart.findAll().then((allproducts) => { res.send(allproducts) }))
+    console.log('control transfeered')
+    carts.destroy({ where: { productid: req.body.id,username:req.user.username } }).then(carts.findAll().then((allproducts) => { res.send(allproducts) }))
 })
 
 //decrement the quantity of a product from cart
