@@ -54,7 +54,7 @@ route.post('/addtocart', (req, res) => {
 
 //delete a product from cart
 route.post('/delete', (req, res) => {
-    console.log('control transfeered')
+   // console.log('control transfeered')
     carts.destroy({ where: { productid: req.body.id,username:req.user.username } }).then(carts.findAll().then((allproducts) => { res.send(allproducts) }))
 })
 
@@ -105,13 +105,31 @@ route.post('/addtowishlist', (req, res) => {
 })
 
 //delete a product from wishlist
-route.post('/deletefromwishlist',(req,res)=>{
-    wishlist.destroy({where:{productname:req.body.productname}}).then(()=>{
-        res.sendStatus(200);
+route.post('/deletefromwishlist', (req, res) => {
+    // console.log('control transfeered')
+     wishlist.destroy({ where: { productid: req.body.id,username:req.user.username } }).then(wishlist.findAll().then((allproducts) => { res.send(allproducts) }))
+ })
+
+//wishlist to addtocart
+route.post('/wishtocart',(req,res)=>{
+    wishlist.findOne({ where: { productid:req.body.id,username:req.user.username } }).then((item)=>{
+        console.log(item.dataValues)
+        carts.create({       
+            productname:item.dataValues.productname,
+            productid:item.dataValues.productid,
+            username:item.dataValues.username,
+            price:item.dataValues.price,
+            quantity:1,
+            vendor:item.dataValues.vendor,
+            image:item.dataValues.image,
+
+        }).then(()=>{
+            wishlist.destroy({ where: { productid: req.body.id,username:req.user.username } }).then(wishlist.findAll().then((allproducts) => { res.send(allproducts) }))            
+        })
+       
+
     })
 })
-
-
 
 //place an order 
 route.post('/placeorder',(req,res)=>{
@@ -208,6 +226,11 @@ route.get('/',checkLoggedIn,(req,res)=>{
 //cart page
 route.get('/cart',checkLoggedIn,(req,res)=>{
     res.render('usercart');
+})
+
+//wishlist page
+route.get('/wishlist',checkLoggedIn,(req,res)=>{
+    res.render('userwishlist');
 })
 
 route.get('/products',(req,res)=>{

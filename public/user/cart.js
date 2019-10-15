@@ -22,15 +22,12 @@ col_price=$(`<td>₹${list[i].price}</td>`)
 col_quantity=$(`<td><input type="number" value="${list[i].quantity}" readonly style="width: 40px;"></td>`)
 col_total=$(`<td><div><span>${total_cost}</span></div></td>`)
 col_delete=$(`<td><p id="prod-id" style='display:none'>${list[i].productid}</p></td>`)
-// button=$(`<button class="btn btn-primary delete">Delete</button>`).click(()=>{
-//     console.log('workinf')
-// })
+
 button=$(`<button class="deleta btn btn-primary">Delete</button>`)
 button.unbind('click').bind('click',function(e){
 console.log('wok')
-console.log($('#prod-id').html())
-console.log(e.target.parentElement)
-var id=$('#prod-id').html()
+console.log(e.target.parentElement.children[0].innerText)
+var id=e.target.parentElement.children[0].innerText
 $.post('/user/delete',{id},(data)=>{
     console.log(data)
     printing(data)

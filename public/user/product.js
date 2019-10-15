@@ -52,7 +52,8 @@ function printingproducts(data){
         para=$(`<p></p>`);
         para.append(addtocart,wishlist);
         carddiv.append(image,names,price,description,para,dffdsf,df,imgs);
-        mydiv.append(carddiv);}
+        mydiv.append(carddiv);
+    }
         
 
     $('.addtocart').unbind('click').bind('click', function (e) {
