@@ -2,6 +2,7 @@ $(()=>{
  $.get('/user/getallfromcart',(data)=>{
       printing(data)
  })
+
 })
 
 function printing(list){

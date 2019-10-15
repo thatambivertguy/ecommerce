@@ -131,26 +131,49 @@ route.post('/wishtocart',(req,res)=>{
     })
 })
 
+
+//payment page loading 
+route.get('/payment',checkLoggedIn,(req,res)=>{res.render('payment')})
+
+
 //place an order 
-route.post('/placeorder',(req,res)=>{
+route.post('/payment',checkLoggedIn,(req,res)=>{
     var today = new Date();
     var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    orders.create({
+    console.log('here')
+    carts.findAll({where:{username:req.user.username}}).then((data)=>{
+        for(var i=0; i<data.length;i++){
+       const  id=data[i].dataValues.productid
+        const user=data[i].dataValues.username
+            // console.log(data[i].dataValues)
+        orders.create({
         time:date+"--"+time,
         status:'pending',
-        paymentmethod:req.body.paymentmethod,
-        productid: req.body.productid,
-        productname: req.body.productname,
-        price: req.body.price,
-        quantity: req.body.quantity,
-        username: req.body.username,
-        vendor: req.body.vendor,
+        paymentmethod:'card_testing',
+        productid: data[i].dataValues.productid,
+        productname: data[i].dataValues.productname,
+        price: data[i].dataValues.price,
+        quantity: data[i].dataValues.quantity,
+        username: data[i].dataValues.username,
+        vendor: data[i].dataValues.vendor,
 
-    }).then((allproducts)=>{
-        res.send(allproducts);
+    }).then(()=>{
+        console.log('created order')
+        carts.destroy({ where: { productid: id,username:user } }).then((()=>{console.log('destruction done')}))
     })
+}    
+
+res.send('okay')
+
 })
+        
+        
+
+
+ 
+    })
+
 //get all the order placed by a user
 route.get('/allorders',(req,res)=>{
     orders.findAll({where:{username:req.query.username}}).then(allproducts=>{
