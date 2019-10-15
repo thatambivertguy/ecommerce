@@ -21,10 +21,10 @@
 
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-        <script src="/user/cart.js"></script>
+        <script src="/user/order.js"></script>
 </head>
 <style>
-    td {}
+    tr {text-align: center;}
 </style>
 
 <body>
@@ -48,7 +48,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/user/wishlist">wishlist<span class="sr-only">(current)</span></a>
                     </li>
-                                        <li class="nav-item">
+                                    <li class="nav-item  active">
                         <a class="nav-link" href="/user/orders">My orders<span class="sr-only">(current)</span></a>
                     </li>
 
@@ -62,34 +62,30 @@
     
 
 
-    <div class="container">
+     <div class="container">
         <div class="row">
+            <div class="col"></div>
             <div class="col-12">
-                <table class="table">
+                <h1><b><i><u>Order Details</u></i></b></h1>
+                <table  class="table table-stripped" id="main_table" cellpadding="5">
                     <thead>
-                        <tr>
-                            <th>Product</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Total</th>
-                            <th>  </th>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">quantity</th>
+                        <th scope="col">price</th>
+                        <th scope="col">status</th>
                         </tr>
                     </thead>
-                    <tbody id="cart-table">
-                    </tbody>
-                </table>
-                <hr>
-                <div style="float: right">
-                    <span>Subtotal:</span>
-                    <span id="subtot">750</span>
-                </div><br><br><br>
-            <div style="float: right;">
-                <span>
-                    <form class="form-inline my-2 my-lg-0" action="/user/payment" method="GET">
-                    <button class="btn btn-primary" id="checkout" type="submit">Checkout</button></form></span>
-            </div>
-            </div>
+                    <tbody id="table"></tbody>
 
+                    {{!-- <table class="table table-dark" cellpaddin="5" id="maindiv">
+                    </table> --}}
+
+                </table>
+
+            </div>
+            <div class="col"></div>
         </div>
 
     </div>

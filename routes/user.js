@@ -165,18 +165,12 @@ route.post('/payment',checkLoggedIn,(req,res)=>{
 }    
 
 res.send('okay')
-
 })
-        
-        
-
-
- 
-    })
+})
 
 //get all the order placed by a user
 route.get('/allorders',(req,res)=>{
-    orders.findAll({where:{username:req.query.username}}).then(allproducts=>{
+    orders.findAll({where:{username:req.user.username}}).then(allproducts=>{
         res.send(allproducts);
     })
 })
@@ -240,7 +234,8 @@ products.findAll(condition).then(data=>{
 })
 
 
-
+//order page for user
+route.get('/orders',checkLoggedIn,(req,res)=>{res.render('userorder')})
 //homepage for the user
 route.get('/',checkLoggedIn,(req,res)=>{
     res.render('userhome')
@@ -256,7 +251,7 @@ route.get('/wishlist',checkLoggedIn,(req,res)=>{
     res.render('userwishlist');
 })
 
-route.get('/products',(req,res)=>{
+route.get('/products',checkLoggedIn,(req,res)=>{
     res.render('userproduct')
 })
 module.exports = route
