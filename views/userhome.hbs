@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Admin</title>
+    <title>Home</title>
+    <link rel="shortcut icon" type="image/png" href="/uploads/userhome.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -17,23 +18,28 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 </head>
 <style>
-    .container{
+    body{
+        background-color: #f2f2f2;
+    }
+        .container{background-color: #f2f2f2;
     
     }
    .content {
         position: absolute;
         bottom: 10px;
-        background: rgb(0, 0, 0);
+        /*background: rgb(0, 0, 0);*/
         /* Fallback color */
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(255, 255, 255, 0.4);
         /* Black background with 0.5 opacity */
-        color: #f1f1f1;
+        color:black;
         width: 70%;
         height: 70%;
         padding: 20px;
@@ -46,19 +52,20 @@
         transform:translate(40px,-50px);
 
     }
-</style>
+    
+ </style>
 
 <body>
     
-        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-            <a class="navbar-brand" href="/user">HOME</a>
+        <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #142952;">
+            <a class="navbar-brand" href="/user"><img src="/uploads/userhome.png" style="height:40px"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+                <ul class="navbar-nav mr-auto" style="color:white">
                     <li class="nav-item">
                         <a class="nav-link" href="/user/products">products<span class="sr-only">(current)</span></a>
                     </li>
@@ -83,7 +90,7 @@
 
 
 
-
+  <br><br>
 
     
         <div class="row">
@@ -97,19 +104,19 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img class="d-block w-100" src="/uploads/prod_image-1568037155582.png" height="400px"
+                            <img class="d-block w-100" src="/uploads/sliderhome.png" height="400px"
                                 width="100%" alt="First slide">
                             <div class="carousel-caption">
-                                <h3>Los Angeles</h3>
+                                <a href="#">Shop Now</a>
                                 <p>We had such a great time in LA!</p>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="/uploads/prod_image-1568037155582.png" height="400px"
+                            <img class="d-block w-100" src="/uploads/sliderhome1.png" height="400px"
                                 alt="Second slide">
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="/uploads/prod_image-1568037155582.png" height="400px"
+                            <img class="d-block w-100" src="/uploads/sliderhome2.png" height="400px"
                                 alt="Third slide">
                         </div>
                     </div>
@@ -127,16 +134,16 @@
             <Div class="col"></Div>
         </div>
 
-
+<br><br>
 
 
     
     <div class="row">
         <div class="col-4">
             <div class="main" style="width: 100%;padding:10px 0px;">
-                <img src="/uploads/prod_image-1568037155582.png" style="width:100%;" height="300px">
+                <img src="/uploads/homeshoe.png" style="width:100%;" height="400px">
                 <div class="content">
-                    <h1>Heading</h1>
+                    <a href="#">Heading</a>
                     <p>Lorem ipsum dolor sit amet, an his etiam torquatos. Tollit soleat phaedrum te duo, eum cu
                         recteque expetendis neglegentur. Cu mentitum maiestatis persequeris pro, pri ponderum tractatos
                         ei.</p>
@@ -146,7 +153,7 @@
 
         <div class="col-4">
             <div class="main" style="width: 100%;padding:10px 0px;">
-                <img src="/uploads/prod_image-1568037155582.png" style="width:100%;" height="300px">
+                <img src="/uploads/menhome.png" style="width:100%;" height="400px">
                 <div class="content">
                     <h1>Heading</h1>
                     <p>Lorem ipsum dolor sit amet, an his etiam torquatos. Tollit soleat phaedrum te duo, eum cu
@@ -160,7 +167,7 @@
 
         <div class="col-4">
             <div class="main" style="width: 100%;padding:10px 0px;">
-                <img src="/uploads/prod_image-1568037155582.png" style="width:100%;" height="300px">
+                <img src="/uploads/jeanhome.png" style="width:100%;" height="400px">
                      <div class="content">
                     <h1>Heading</h1>
                     <p>Lorem ipsum dolor sit amet, an his etiam torquatos. Tollit soleat phaedrum te duo, eum cu
@@ -179,12 +186,21 @@
 <hr>
 <section>
     <div class="container">
-    <p>Popular in the market</p>
     <h2>Trending products</h2>
     <div class="row">
         <div class="col-3">
             <div class="trending">
-                <img src="/uploads/prod_image-1570092292329.png" style="width: 100%" height="300px">
+                <img src="/uploads/trendingshoes1.png" style="width: 100%" height="300px">
+                <ul class="trendingbtn" style="list-style: none;">
+                    <li style="display: inline-block"><button><i class='fas fa-cart-plus' style='font-size:36px'></i></button></li>
+                    <li style="display: inline-block"><button><i class='far fa-heart' style='font-size:36px'></i></button></li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="trending">
+                <img src="/uploads/trendingshirt1.png" style="width: 100%" height="300px">
                 <ul class="trendingbtn" style="list-style: none;">
                     <li style="display: inline-block"><button>S</button></li>
                     <li style="display: inline-block"><button>W</button></li>
@@ -194,7 +210,7 @@
         </div>
         <div class="col-3">
             <div class="trending">
-                <img src="/uploads/prod_image-1570092292329.png" style="width: 100%" height="300px">
+                <img src="/uploads/trendingtop1.png" style="width: 100%" height="300px">
                 <ul class="trendingbtn" style="list-style: none;">
                     <li style="display: inline-block"><button>S</button></li>
                     <li style="display: inline-block"><button>W</button></li>
@@ -204,17 +220,7 @@
         </div>
         <div class="col-3">
             <div class="trending">
-                <img src="/uploads/prod_image-1570092292329.png" style="width: 100%" height="300px">
-                <ul class="trendingbtn" style="list-style: none;">
-                    <li style="display: inline-block"><button>S</button></li>
-                    <li style="display: inline-block"><button>W</button></li>
-                    
-                </ul>
-            </div>
-        </div>
-        <div class="col-3">
-            <div class="trending">
-                <img src="/uploads/prod_image-1570092292329.png" style="width: 100%" height="300px">
+                <img src="/uploads/trendingjeans1.png" style="width: 100%" height="300px">
                 <ul class="trendingbtn" style="list-style: none;">
                     <li style="display: inline-block"><button>S</button></li>
                     <li style="display: inline-block"><button>W</button></li>
@@ -228,12 +234,11 @@
     <hr>
 
     <div class="container">
-        <p>Popular in the market</p>
-    <h2>Latest products</h2>
+            <h2>Latest products</h2>
         <div class="row">
             <div class="col-3">
             <div class="trending">
-                <img src="/uploads/prod_image-1570092292329.png" style="width: 100%" height="300px">
+                <img src="/uploads/latestshoes1.png" style="width: 100%" height="300px">
                 <ul class="trendingbtn" style="list-style: none;">
                     <li style="display: inline-block"><button>S</button></li>
                     <li style="display: inline-block"><button>W</button></li>
@@ -243,7 +248,7 @@
         </div>
         <div class="col-3">
             <div class="trending">
-                <img src="/uploads/prod_image-1570092292329.png" style="width: 100%" height="300px">
+                <img src="/uploads/latestshirt1.png" style="width: 100%" height="300px">
                 <ul class="trendingbtn" style="list-style: none;">
                     <li style="display: inline-block"><button>S</button></li>
                     <li style="display: inline-block"><button>W</button></li>
@@ -253,17 +258,16 @@
         </div>
         <div class="col-3">
             <div class="trending">
-                <img src="/uploads/prod_image-1570092292329.png" style="width: 100%" height="300px">
+                <img src="/uploads/latesttop1.png" style="width: 100%" height="300px">
                 <ul class="trendingbtn" style="list-style: none;">
                     <li style="display: inline-block"><button>S</button></li>
-                    <li style="display: inline-block"><button>W</button></li>
-                    
+                    <li style="display: inline-block"><button>W</button></li> 
                 </ul>
             </div>
         </div>
         <div class="col-3">
             <div class="trending">
-                <img src="/uploads/prod_image-1570092292329.png" style="width: 100%" height="300px">
+                <img src="/uploads/latestwatch.png" style="width: 100%" height="300px">
                 <ul class="trendingbtn" style="list-style: none;">
                     <li style="display: inline-block"><button>S</button></li>
                     <li style="display: inline-block"><button>W</button></li>
@@ -279,7 +283,7 @@
 
 </section>
 
-<div  class="footer" style="background-color:#212529;">
+<div  class="footer" style="background-color: #142952;">
         <div class="row">
             <div class="col-6">
                 <div style="padding:10px; margin:20px 40px;color:white ">
@@ -334,6 +338,7 @@
         z-index: -1;
         transform: translateY(10px);
         transition:all .48s ease-in-out; 
+    
         
     }
     .trending:hover .trendingbtn{

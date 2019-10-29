@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin</title>
+        <link rel="shortcut icon" type="image/png" href="/uploads/userhome.png">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -25,11 +27,15 @@
     <script src="/user/product.js"></script>
 
 </head>
-
+<style>
+        body{
+        background-color: #f2f2f2;
+    }
+</style>
 <body>
     <div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-            <a class="navbar-brand" href="/user">HOME</a>
+        <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #142952;">
+            <a class="navbar-brand" href="/user"><img src="/uploads/userhome.png" style="height:40px"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -71,15 +77,15 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img class="d-block w-100" src="/uploads/prod_image-1568037155582.png" height="400px"
+                            <img class="d-block w-100" src="/uploads/sliderhome.png" height="400px"
                                 width="100%" alt="First slide">
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="/uploads/prod_image-1568037155582.png" height="400px"
+                            <img class="d-block w-100" src="/uploads/sliderhome1.png" height="400px"
                                 alt="Second slide">
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="/uploads/prod_image-1568037155582.png" height="400px"
+                            <img class="d-block w-100" src="/uploads/sliderhome.png" height="400px"
                                 alt="Third slide">
                         </div>
                     </div>
@@ -106,10 +112,10 @@
                     <button class="button bg-light" id="searchbtn">search</button>
                 </div>
                 <div class="category">
-                    <div style=";padding:0 10px; background-color:black; width:100%; color:white;border-radius:5px">
+                    <div style=";padding:0 10px; background-color:#384aeb; width:100%; color:white;border-radius:5px">
                         Category:
                     </div>
-                    <div style="padding:0 20px;background-color:lightgrey;width:100%;border-radius:5px">
+                    <div style="padding:0 20px;background-color:rgb(241, 241, 241);width:100%;border-radius:5px">
                         <ul>
                             <li style="list-style:none ">
                                 <input type="radio" name="type" class="filter" id="cat-1" value="Men">
@@ -124,10 +130,10 @@
                     </div>
                 </div>
                 <div class="sub-category">
-                    <div style=";padding:0 10px; background-color:black; width:100%; color:white;border-radius:5px">
+                    <div style=";padding:0 10px; background-color:#384aeb; width:100%; color:white;border-radius:5px">
                         Sub-Category:
                     </div>
-                    <div style="padding:0 20px;background-color:lightgrey;width:100%;border-radius:5px">
+                    <div style="padding:0 20px;background-color:rgb(241, 241, 241);width:100%;border-radius:5px">
                         <ul>
                             <li style="list-style:none">
                                 <input type="radio" name="sub-type" class="filter" id="sub-1" value="Top">
@@ -142,10 +148,10 @@
                     </div>
                 </div>
                 <div class="category">
-                    <div style=";padding:0 10px; background-color:black; width:100%; color:white;border-radius:5px;">
+                    <div style=";padding:0 10px; background-color:#384aeb; width:100%; color:white;border-radius:5px;">
                         Price:
                     </div>
-                    <div style="padding:0 20px;background-color:lightgrey;width:100%;border-radius:5px;">
+                    <div style="padding:0 20px;background-color:rgb(241, 241, 241);width:100%;border-radius:5px;">
                         <span>0</span>
                         <input type="range" min="0" max="1000" value="250" class="slider" id="myRange"
                             style="cursor: pointer">
@@ -169,7 +175,7 @@
 
     </div>
     <br>
-    <div  style="background-color:#212529;">
+    <div  class="footer" style="background-color: #142952;">
         <div class="row">
             <div class="col-6">
                 <div style="padding:10px; margin:20px 40px;color:white ">

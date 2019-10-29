@@ -34,22 +34,26 @@ route.get('/getallfromcart', (req, res) => [
 
 //add a product to cart
 route.post('/addtocart', (req, res) => {
-    // carts.findOne({where:{username:req.user.username,productid:req.body.productid}}).then(()=>{
-    //     carts.increment('quantity',{where:{username:req.user.username,productid:req.body.productid}})
-    //     res.send("done") }).catch(()=>{
-    //     console.log("in catch block")
-    // })
-    carts.create({
-        productname:req.body.productname,
-        productid:req.body.productid,
-        username:req.user.username,
-        price:req.body.price,
-        quantity:1,
-        vendor:req.body.vendor,
-        image:req.body.imageat,
-    }).then(allproducts=>{
-        res.send(allproducts);
-    })
+    carts.findOne({where:{username:req.user.username,productname:req.body.productname}}).then((t)=>{
+        
+        if(t==null){
+        carts.create({
+            productname:req.body.productname,
+            productid:req.body.productid,
+            username:req.user.username,
+            price:req.body.price,
+            quantity:1,
+            vendor:req.body.vendor,
+            image:req.body.imageat,
+        }).then(allproducts=>{
+            res.send(allproducts);
+        })
+        }
+        else{ 
+        carts.increment('quantity',{where:{username:req.user.username,productname:req.body.productname}})}
+        res.send("done") })
+   
+
 })
 
 //delete a product from cart
@@ -109,6 +113,13 @@ route.post('/deletefromwishlist', (req, res) => {
     // console.log('control transfeered')
      wishlist.destroy({ where: { productid: req.body.id,username:req.user.username } }).then(wishlist.findAll().then((allproducts) => { res.send(allproducts) }))
  })
+
+//order to cancel
+route.post('/orderupdate',(req,res)=>{
+    orders.update({status:'Cancelled'},{where:{id:req.body.id}}).then(()=>{
+        res.sendStatus(200);
+    })
+})
 
 //wishlist to addtocart
 route.post('/wishtocart',(req,res)=>{
@@ -231,6 +242,14 @@ products.findAll(condition).then(data=>{
         console.log(data)
         res.send(data)})
 
+})
+
+
+
+
+//single product view
+route.get('/singleproduct',(req,res)=>{
+    res.render('singleproduct')
 })
 
 
