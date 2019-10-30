@@ -1,8 +1,9 @@
 .card{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width:272px;
-    max-height: 450px;
-     margin: auto;
+    max-width:262px;
+    height: 450px;
+    margin: auto;
+   
   text-align: center;
   font-family: arial;
   display: inline-block;

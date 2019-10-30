@@ -45,9 +45,9 @@ function printingproducts(data) {
     for (let i = 0; i < data.length; i++) {
         carddiv = $(`<div class="card"></div>`);
         image = $(`<img src="/uploads/${data[i].image}" alt="${data[i].name}" height="170px"   style="width:100% ">`);
-        names = $(`<h1>${data[i].name}</h1>`);
+        names = $(`<h5>${data[i].name}</h5>`);
         price = $(`<p class="price">${data[i].price}</p>`)
-        description = $(`<p>${data[i].description}</p>`)
+        description = $(`<p style="overflow: auto;display:none">${data[i].description}</p>`)
         dffdsf = $(`<p class="unique"style='display:none'>${data[i].id}</p>`)
         df = $(`<p id="vendor" style='display:none'>${data[i].vendor}</p>`)
         imgs = $(`<p id="image-add" style='display:none'>${data[i].image}</p>`)

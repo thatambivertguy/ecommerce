@@ -59,7 +59,7 @@ route.post('/addaproduct',upload.single("prod_image") ,(req, res) => {
 
 //get all products from database
 route.get('/getallproducts', (req, res) => {
-    products.findAll().then(allproducts => {
+    products.findAll({where:{vendor:req.user.username}}).then(allproducts => {
         res.send(allproducts)
     })
 })

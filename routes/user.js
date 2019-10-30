@@ -249,7 +249,16 @@ products.findAll(condition).then(data=>{
 
 //single product view
 route.get('/singleproduct',(req,res)=>{
-    res.render('singleproduct')
+    //var idd=req.query.id;
+    //console.log(idd);
+    console.log("oh yeah" +req.query.id);
+    //const idd=req.body.id;
+    products.findOne({where:{id:req.query.id}}).then(pro=>{
+        console.log(pro)
+        res.send(pro)
+
+    })
+    //res.render('singleproduct')
 })
 
 

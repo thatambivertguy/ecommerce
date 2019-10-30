@@ -1,14 +1,14 @@
 body{
     margin: 0;
     padding: 0;
-    background:url(bg.jpg) no-repeat;
+    background-color: #f2f2f2;
     background-size: cover;
   }
   .signup-form{
     width: 300px;
     padding: 20px;
     text-align: center;
-    background: url(bg.png);
+    /* background: url(bg.png); */
     position: absolute;
     top: 50%;
     left: 50%;
@@ -18,7 +18,7 @@ body{
   .signup-form h1{
     margin-top: 100px;
     font-family: 'Permanent Marker', cursive;
-    color: #fff;
+    color:black;
     font-size: 40px;
   }
   .signup-form input{
@@ -41,7 +41,7 @@ body{
     margin-top: 60px;
     margin-bottom: 20px;
     background: #487eb0;
-    color: #fff;
+    color: black;
     border-radius: 44px;
     cursor: pointer;
     transition: 0.8s;
@@ -49,9 +49,10 @@ body{
   .signup-btn:hover{
     transform: scale(0.96);
   }
-  .signup-form a{
+  .signup-form a{background: gray;
+    border-radius: 44px;
     text-decoration: none;
-    color: #fff;
+    color: black;
     font-family: "montserrat",sans-serif;
     font-size: 14px;
     padding: 10px;
